@@ -1,0 +1,72 @@
+/*----------------------------------------------------------------------------*/
+/* UFPR – Bacharelado em Ciência da Computação                                */
+/* CI164: Introducao a Computacao Cientifica, 1sem/2014                       */
+/* Primeiro Trabalho Pratico                                                  */
+/* Alunos:  Marfan Fragoso Veras Junior - GRR20113754                         */
+/*----------------------------------------------------------------------------*/
+
+O objetivo deste trabalho é implementar um programa computacional que, dada uma matriz quadrada A de dimensão n, encontre a matriz inv(A) inversa de A, tal que A * inv(A) = I, onde I é a matriz identidade.
+
+Para tal, o programa deve utilizar o Método da Fatoração de Cholesky.
+
+Além da matriz inversa o programa também deve calcular a norma L² do resíduo (||r||):
+
+    R = I - A * inv(A)
+    ||r|| = sqrt( sum( R[i,j] ² ) ), [i,j] = {1,2,...,n}
+
+ 
+
+Execução do Programa
+
+O pacote de software a ser construído deve gerar o executável chamado invmat , que deve ser executado da seguinte forma:
+
+invmat [-i arquivo_entrada] [-o arquivo_saida] [-r N]
+
+Onde:
+
+    -i arquivo_entrada: parâmetro opcional no qual arquivo_entrada é o caminho completo para o arquivo contendo a matriz a ser invertida. Em caso de ausência do parâmetro, a entrada deve ser lida de stdin.
+    -o arquivo_saida: parâmetro opcional no qual arquivo_saida é o caminho completo para o arquivo que vai conter a matriz inversa. Em caso de ausência do parâmetro, a saída deve ser impressa em stdout.
+    -r N: parâmetro opcional no qual N é a dimensão da matriz de entrada a ser gerada aleatoreamente de acordo com a função especificada aqui.
+
+ 
+Entrada de Dados
+
+A matriz de entrada sempre é quadrada e possui a seguinte formatação (em ASCII):
+
+n
+a_11 a_12 ... a_1n
+a_21 a_22 ... a_2n
+ .   .       .
+ .   .       .
+a_n1 a_n2 ... a_nn
+
+onde 1< n < 32768 indica o número de elementos em uma linha/coluna da matriz, e a_ij é um número em ponto flutuante de precisão dupla (double).
+
+ 
+Saída de Dados
+
+A matriz resultante deve ser impressa no mesmo formato da matriz de entrada. Os valores da matriz devem ser impressos com printf("%.17g", valor). Algumas informações adicionais devem ser impressas, precedidas do caractere '#'
+
+#
+# Erro: <norma L2 do residuo>
+# Tempo Invert: <tempo para inversão da matriz em segundos>
+# Tempo Erro:   <tempo para cálculo do erro em segundos>
+#
+n
+a_11 a_12 ... a_1n
+a_21 a_22 ... a_2n
+ .   .       .
+ .   .       .
+a_n1 a_n2 ... a_nn
+
+Onde:
+
+    Tempo: deve ser calculado em segundos, utilizando-se a função especificada aqui.
+    Tempo Invert: tempo calculado a partir do início do processo de inversão da matriz até a obtenção da matriz inversa. Não incluir tempo de leitura ou geração da matriz de entrada, nem a impressão dos resultados ou cálculo do erro.
+    Tempo Erro: Tempo para calcular o erro, ou seja, os itens (1.) e (2.) acima (inclusive a multiplicação de matrizes).
+
+ 
+
+MENSAGENS DE ERRO:
+
+Em caso de erros, uma mensagem explicando o ocorrido deve ser impressa em stderr e a execução do programa deve ser encerrada com código diferente de 0.
